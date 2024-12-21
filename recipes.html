@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delicious Recipes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Bahnschrift SemiBold', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #93d4b7;
+      color: #ffffff;
+    }
+
+    header {
+      background: #97e07c;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    /* Menu Section */
+    #menu {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    #menu h2 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .menu-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .menu-item {
+      font-size: 1.25rem;
+      padding: 10px 20px;
+      background-color: #cc4646;
+      color: #fae94f;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .menu-item:hover {
+      background-color: #c5270b;
+    }
+
+    /* Recipe Cards */
+    .recipe-card {
+      background-color: #fff;
+      border-radius: 50px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .recipe-card img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 300px;
+    }
+
+    .recipe-card h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-top: 15px;
+    }
+
+    .recipe-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .recipe-card p strong {
+      color: #333;
+    }
+
+    /* Light/Dark Mode Toggle */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #fff;
+      border: 2px solid #333;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background-color: #ff6347;
+    }
+
+    .dark-mode {
+      background-color: #1b2e48;
+      color: #ffffff;
+    }
+
+    .dark-mode header {
+      background: #c5270b;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .dark-mode .recipe-card {
+      background-color: #ffffff;
+      color: #f5f5f5;
+    }
+
+    .dark-mode .menu-item {
+      background-color: #696868;
+      color: #f2ed5a;
+    }
+
+    .dark-mode .menu-item:hover {
+      background-color: #c5270b;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Delicious Recipes
+  </header>
+
+  <!-- Light/Dark Mode Toggle -->
+  <div class="toggle-btn" onclick="toggleTheme()">
+    🌙
+  </div>
+
+  <!-- Menu Section -->
+  <div id="menu">
+    <h2>Menu Card</h2>
+    <ul class="menu-list">
+      <li class="menu-item" onclick="scrollToRecipe('tacos')">Tacos</li>
+      <li class="menu-item" onclick="scrollToRecipe('sushi')">Sushi Rolls</li>
+      <li class="menu-item" onclick="scrollToRecipe('salad')">Greek Salad</li>
+      <li class="menu-item" onclick="scrollToRecipe('pizza')">Margherita Pizza</li>
+      <li class="menu-item" onclick="scrollToRecipe('burger')">Cheeseburger</li>
+      <li class="menu-item" onclick="scrollToRecipe('stir-fry')">Vegetable Stir Fry</li>
+      <li class="menu-item" onclick="scrollToRecipe('lasagna')">Lasagna</li>
+      <li class="menu-item" onclick="scrollToRecipe('pasta')">Pasta Carbonara</li>
+      <li class="menu-item" onclick="scrollToRecipe('chicken')">Grilled Chicken</li>
+      <li class="menu-item" onclick="scrollToRecipe('smoothie')">Fruit Smoothie</li>
+    </ul>
+  </div>
+
+  <!-- Recipe Section -->
+  <div id="recipes">
+    <!-- Tacos Recipe -->
+    <div id="tacos" class="recipe-card">
+      <h3>Tacos</h3>
+      <p><strong>Ingredients:</strong> 1 lb ground beef, 1 packet taco seasoning, taco shells, lettuce, cheese, salsa, sour cream.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. In a large skillet, brown the ground beef over medium heat. Drain excess fat. (Cook time: 7-10 minutes)</p>
+      <p>2. Add taco seasoning and water according to the packet instructions. Simmer for 5 minutes until thickened.</p>
+      <p>3. While the meat cooks, prepare taco toppings: shred lettuce, chop salsa, and grate cheese.</p>
+      <p>4. Warm taco shells in the oven for 5 minutes.</p>
+      <p>5. Assemble tacos by filling the shells with beef, lettuce, cheese, salsa, and sour cream.</p>
+      <p><strong>Cooking Time:</strong> 15-20 minutes</p>
+      <p><strong>Serving Size:</strong> 4 servings</p>
+    </div>
+
+    <!-- Sushi Rolls Recipe -->
+    <div id="sushi" class="recipe-card">
+      <h3>Sushi Rolls</h3>
+      <p><strong>Ingredients:</strong> 2 cups sushi rice, 1 ½ cups water, ½ cup rice vinegar, 1 tbsp sugar, 1 tbsp salt, 10 nori sheets, fish (salmon or tuna), cucumber, avocado, soy sauce, wasabi.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Cook sushi rice according to package instructions. While hot, mix rice vinegar, sugar, and salt, and fold into the rice. Let rice cool.</p>
+      <p>2. Slice fish, cucumber, and avocado into thin strips.</p>
+      <p>3. Place a nori sheet on a bamboo mat, spread a thin layer of rice over the nori, leaving a 1-inch border at the top.</p>
+      <p>4. Lay fish, cucumber, and avocado across the middle. Roll tightly using the mat, sealing with a little water on the top edge.</p>
+      <p>5. Slice into 6-8 pieces. Serve with soy sauce and wasabi.</p>
+      <p><strong>Cooking Time:</strong> 30 minutes</p>
+      <p><strong>Serving Size:</strong> 2 servings</p>
+    </div>
+
+    <!-- Greek Salad Recipe -->
+    <div id="salad" class="recipe-card">
+      <h3>Greek Salad</h3>
+      <p><strong>Ingredients:</strong> 3 cups chopped cucumber, 2 cups chopped tomatoes, 1 red onion, 1 cup Kalamata olives, 200g feta cheese, 3 tbsp olive oil, 1 tbsp red wine vinegar, oregano, salt, pepper.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Chop the cucumber, tomatoes, and onion into bite-sized pieces.</p>
+      <p>2. In a large bowl, combine the chopped vegetables, olives, and crumbled feta cheese.</p>
+      <p>3. In a small bowl, whisk together olive oil, red wine vinegar, oregano, salt, and pepper.</p>
+      <p>4. Drizzle the dressing over the salad and toss gently.</p>
+      <p><strong>Cooking Time:</strong> 10 minutes</p>
+      <p><strong>Serving Size:</strong> 4 servings</p>
+    </div>
+
+    <!-- Margherita Pizza Recipe -->
+    <div id="pizza" class="recipe-card">
+      <h3>Margherita Pizza</h3>
+      <p><strong>Ingredients:</strong> 1 pizza dough (store-bought or homemade), 1 cup tomato sauce, 200g fresh mozzarella cheese, 1 tbsp olive oil, fresh basil, salt, pepper.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Preheat your oven to 475°F (245°C).</p>
+      <p>2. Roll out the pizza dough on a floured surface to your desired size.</p>
+      <p>3. Spread tomato sauce over the dough, leaving a small border around the edges.</p>
+      <p>4. Tear mozzarella into pieces and scatter evenly over the sauce.</p>
+      <p>5. Drizzle with olive oil and sprinkle with salt and pepper.</p>
+      <p>6. Bake the pizza for 10-12 minutes, until the crust is golden and cheese is bubbly.</p>
+      <p>7. Garnish with fresh basil leaves before serving.</p>
+      <p><strong>Cooking Time:</strong> 15-20 minutes</p>
+      <p><strong>Serving Size:</strong> 2 servings</p>
+    </div>
+
+    <!-- Cheeseburger Recipe -->
+    <div id="burger" class="recipe-card">
+      <h3>Cheeseburger</h3>
+      <p><strong>Ingredients:</strong> 1 lb ground beef, 4 hamburger buns, 4 slices cheddar cheese, 1 onion (sliced), lettuce, tomato slices, pickles, ketchup, mustard, salt, pepper.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Preheat a grill or skillet over medium heat.</p>
+      <p>2. Form the ground beef into 4 patties, and season with salt and pepper.</p>
+      <p>3. Grill the patties for 4-5 minutes per side, until cooked to your liking.</p>
+      <p>4. Place a slice of cheese on each patty in the last minute of cooking to melt.</p>
+      <p>5. Toast the buns on the grill or in a pan for a minute.</p>
+      <p>6. Assemble the burger by placing a patty on the bottom bun and adding your favorite toppings.</p>
+      <p><strong>Cooking Time:</strong> 15-20 minutes</p>
+      <p><strong>Serving Size:</strong> 4 servings</p>
+    </div>
+
+    <!-- Vegetable Stir Fry Recipe -->
+    <div id="stir-fry" class="recipe-card">
+      <h3>Vegetable Stir Fry</h3>
+      <p><strong>Ingredients:</strong> 1 cup broccoli florets, 1 cup sliced carrots, 1 bell pepper (sliced), 1 onion (sliced), 1/2 cup soy sauce, 2 tbsp honey, 1 tbsp sesame oil, garlic, ginger.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. In a pan or wok, heat sesame oil over medium heat.</p>
+      <p>2. Add garlic and ginger, and sauté for 30 seconds.</p>
+      <p>3. Add the vegetables and stir-fry for 5-7 minutes, until tender-crisp.</p>
+      <p>4. In a small bowl, mix soy sauce and honey. Pour the sauce over the vegetables and stir to coat.</p>
+      <p>5. Serve hot, optionally garnished with sesame seeds.</p>
+      <p><strong>Cooking Time:</strong> 15 minutes</p>
+      <p><strong>Serving Size:</strong> 4 servings</p>
+    </div>
+
+    <!-- Lasagna Recipe -->
+    <div id="lasagna" class="recipe-card">
+      <h3>Lasagna</h3>
+      <p><strong>Ingredients:</strong> 9 lasagna noodles, 1 lb ground beef, 2 cups ricotta cheese, 2 cups shredded mozzarella, 1 jar marinara sauce, 1/4 cup grated Parmesan cheese, egg, garlic, herbs.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Cook lasagna noodles according to package directions, then drain.</p>
+      <p>2. In a skillet, brown ground beef and garlic, then drain fat.</p>
+      <p>3. Mix ricotta, egg, Parmesan cheese, and herbs in a bowl.</p>
+      <p>4. In a baking dish, layer marinara sauce, lasagna noodles, ricotta mixture, and meat. Repeat layers.</p>
+      <p>5. Top with mozzarella cheese and bake at 375°F for 30 minutes, or until bubbly.</p>
+      <p><strong>Cooking Time:</strong> 1 hour</p>
+      <p><strong>Serving Size:</strong> 6 servings</p>
+    </div>
+
+    <!-- Pasta Carbonara Recipe -->
+    <div id="pasta" class="recipe-card">
+      <h3>Pasta Carbonara</h3>
+      <p><strong>Ingredients:</strong> 400g spaghetti, 4 eggs, 1 cup Parmesan cheese, 1/2 cup pancetta, 2 cloves garlic, olive oil, salt, pepper.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Cook pasta according to package instructions.</p>
+      <p>2. In a skillet, sauté pancetta and garlic in olive oil until crispy.</p>
+      <p>3. Whisk together eggs and Parmesan in a bowl.</p>
+      <p>4. Drain pasta, and toss with pancetta. Remove from heat.</p>
+      <p>5. Quickly toss pasta with the egg mixture to create a creamy sauce.</p>
+      <p><strong>Cooking Time:</strong> 20 minutes</p>
+      <p><strong>Serving Size:</strong> 4 servings</p>
+    </div>
+
+    <!-- Grilled Chicken Recipe -->
+    <div id="chicken" class="recipe-card">
+      <h3>Grilled Chicken</h3>
+      <p><strong>Ingredients:</strong> 4 chicken breasts, 1 tbsp olive oil, lemon juice, garlic powder, onion powder, paprika, salt, pepper.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Marinate chicken breasts with olive oil, lemon juice, garlic, and spices for at least 30 minutes.</p>
+      <p>2. Preheat grill to medium-high heat.</p>
+      <p>3. Grill chicken for 5-7 minutes on each side, or until fully cooked.</p>
+      <p>4. Serve with your favorite sides.</p>
+      <p><strong>Cooking Time:</strong> 20 minutes</p>
+      <p><strong>Serving Size:</strong> 4 servings</p>
+    </div>
+
+    <!-- Fruit Smoothie Recipe -->
+    <div id="smoothie" class="recipe-card">
+      <h3>Fruit Smoothie</h3>
+      <p><strong>Ingredients:</strong> 1 banana, 1 cup mixed berries, 1/2 cup Greek yogurt, 1 cup almond milk, honey to taste.</p>
+      <p><strong>Instructions:</strong></p>
+      <p>1. Combine all ingredients in a blender.</p>
+      <p>2. Blend until smooth and creamy.</p>
+      <p>3. Pour into glasses and serve immediately.</p>
+      <p><strong>Cooking Time:</strong> 5 minutes</p>
+      <p><strong>Serving Size:</strong> 2 servings</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Delicious Recipes. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Light/Dark Mode Toggle Functionality
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const themeButton = document.querySelector('.toggle-btn');
+      themeButton.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    }
+
+    // Scroll to Recipe Functionality
+    function scrollToRecipe(recipeId) {
+      const recipe = document.getElementById(recipeId);
+      recipe.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
